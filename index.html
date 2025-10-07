@@ -3,19 +3,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>第五周主線任務 by mochi(Toad)</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="wrap">
-        <div class="card">
-            <div class="pics">
-            <img src="" alt="">
-            <img src="" alt="">
-            </div>
-            <div class="form">
-            <div class="formText"></div>
-            <div class="btn"></div>
-            </div>
-        </div>
+
+
+
+<div class="wrap">
+ 
+  <div class="card">
+    <div class="pics">
+      <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/js_week5/main_img.png?raw=true" alt="">
+      <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/js_week5/logo.png?raw=true" alt="">
     </div>
+    <div class="form">
+      <div class="formText">
+        <h2 style='font-size: 24px;'>
+          <i class="fa fa-plus-circle" aria-hidden="true"></i>新增旅遊套票</h2>
+        <div class="underLine"></div>
+        <form action="">
+          <div class="formPutIn">
+            <label for="ticketName">套票名稱
+              <input id='ticketName' type="text" placeholder='請填寫套票名稱'>
+            </label>
+            <label for="ticketImg">圖片網址
+              <input id='ticketImg' type="text"  placeholder='請填寫圖片網址'>
+                
+              </label>
+            <label for="touristSpot">景點地區
+              <select name="touristSpot" id="touristSpot">
+                <option value="" disabled selected>請選擇景點</option>
+                <option value="台北">台北</option>
+                <option value="台中">台中</option>
+                <option value="高雄">高雄</option>
+                <option value="全部地區">全部地區</option>
+              </select>
+              </label>
+            <label for="ticketPrice">套票金額
+              <input id="ticketPrice" type="text" placeholder='請填寫套票金額'>
+                
+              </label>
+            <label for="ticketNum">套票組數
+              <input id="ticketNum" type="text" placeholder='請填寫套票組數'>
+                
+              </label>
+            <label for="ticketRank">套票星級
+              <input id="ticketRank" type="text" placeholder='請填寫套票星級'>
+                
+              </label>
+            <label for="ticketDesc">套票描述
+              <textarea id="ticketDesc" name="套票描述" id="ticketDescription" placeholder="請填寫套票描述 (限 100 字)"></textarea>   
+              </label>
+            <div class="btnDiv">
+             <button class="btn" style='width:50%;'>新增套票</button>
+              </div>
+          </div>
+          
+        </form>
+ 
+      </div>
+   
+    </div>
+   </div>
+
+</div>
 </body>
 </html>
