@@ -180,6 +180,7 @@ i {
 }
 .travelTitle {
    padding:16px 0px;
+  font-weight: 700;
 }
 .travelTitle h3 {
   color:#00807E;
@@ -194,4 +195,24 @@ i {
 
 .travelCardText {
   padding:0px 20px;
+  display: flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.travelFooter {
+  color:#00807E;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-weight: 700;
+  padding-bottom:25px;
+}
+.travelPrice {
+  display: flex;
+  align-items:center;
+}
+.travelPrice .dollar {
+  font-size: 32px;
+  padding-left:4px;
 }

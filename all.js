@@ -37,12 +37,25 @@ function init(){
   str='';
 data.forEach(function(item,index){
   str +=`<div class="travelCard">
-  <div class="travelImg">
-  <img src=${data[index].imgUrl} alt="">
-  </div><div class='travelCardText'>
-  <div class="travelTitle"><h3>${data[index].name}</h3></div>
-  <div class="travelDetail">${data[index].description}</div>
-  </div></div>`
+    <div class="travelImg">
+    <img src=${data[index].imgUrl} alt="">
+    </div>
+    <div class='travelCardText'>
+      <div class="travelTitle">
+      <h3>${data[index].name}</h3>
+      </div>
+        <div class="travelDetail">${data[index].description}</div>
+        <div class='travelFooter'>
+          <div class='travelGroup'>
+          <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+          剩下最後 ${data[index].group} 組
+          </div>
+          <div class='travelPrice'>
+          <span>TWD</span><span class='dollar'><i class="fa fa-usd" aria-hidden="true"></i>${data[index].price}</span>
+          </div>
+        </div>
+  </div>
+  </div>`
 })
   travelAllCard.innerHTML=str;
   }
