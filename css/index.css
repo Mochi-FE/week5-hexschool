@@ -147,14 +147,16 @@ i {
    display:flex;
   flex-direction:column;
 }
+
 .travelAllCard {
-   display:flex;
-  justify-content:center;
-  max-width:1100px;
+/*  max-width:1100px; */
+ display: flex;
+ flex-wrap:wrap;
 }
 .travelCard {
-  width:33.3333%;
-  margin-right:30px;
+  width:31.333%;
+  margin-right:2%;
+  margin-bottom:38px;
   background-color: #fff;
   border:1px solid #DEE2E6;
   border-radius:4px;

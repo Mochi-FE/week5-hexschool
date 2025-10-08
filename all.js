@@ -36,7 +36,7 @@ let str="";
 function init(){
   str='';
 data.forEach(function(item,index){
-  str +=`<div class="travelCard">
+  str +=`<li class="travelCard">
     <div class="travelImg">
     <img src=${data[index].imgUrl} alt="">
     </div>
@@ -55,9 +55,49 @@ data.forEach(function(item,index){
           </div>
         </div>
   </div>
-  </div>`
+  <li/>`
 })
   travelAllCard.innerHTML=str;
   }
 
 init();
+
+let ticketName=document.querySelector('#ticketName');
+let ticketImg=document.querySelector('#ticketImg');
+let touristSpot=document.querySelector('#touristSpot');
+let ticketPrice=document.querySelector('#ticketPrice');
+let ticketNum=document.querySelector('#ticketNum');
+let ticketRank=document.querySelector('#ticketRank');
+let ticketDesc=document.querySelector('#ticketDesc');
+
+//點擊按鈕觸發
+let addBtn=document.querySelector('.btn');
+addBtn.addEventListener('click',function(e){
+  e.preventDefault();
+  
+  //檢查null或空值
+  if(ticketName.value!=null && ticketImg.value!=null && touristSpot.value!=null && ticketDesc.value!=null && ticketNum.value!=null && ticketPrice.value!=null && ticketRank.value!=null && ticketName.value.trim().length !=0 && ticketImg.value.trim().length !=0 && touristSpot.value.trim().length !=0 && ticketDesc.value.trim().length !=0 && ticketNum.value.trim().length !=0 && ticketPrice.value.trim().length !=0 && ticketRank.value.trim().length !=0){
+   data.push({
+      "id": data.length,
+      "name": ticketName.value,
+      "imgUrl": ticketImg.value,
+      "area": touristSpot.value,
+      "description": ticketDesc.value,
+      "group": ticketNum.value,
+      "price": ticketPrice.value,
+      "rate": ticketRank.value
+    })
+    //push完再把表格清空
+      ticketName.value=null;
+      ticketImg.value=null;
+      touristSpot.value='';
+      ticketPrice.value=null;
+      ticketNum.value=null;;
+      ticketRank.value=null;
+      ticketDesc.value=null;
+      init();
+    }else {
+      alert('有欄位沒輸入，請檢查');
+    }
+
+}) 
