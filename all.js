@@ -31,27 +31,31 @@ let data = [
     }
   ];
 
+let searchTotal=document.querySelector('.searchTotal');
+
+
 let travelAllCard =document.querySelector('.travelAllCard');
 let str="";
-function init(){
+function init(arr){
   str='';
-data.forEach(function(item,index){
+  searchTotal.textContent=`本次搜尋共${arr.length}筆資料`;//預設3筆
+arr.forEach(function(item,index){
   str +=`<li class="travelCard">
     <div class="travelImg">
-    <img src=${data[index].imgUrl} alt="">
+    <img src=${arr[index].imgUrl} alt="">
     </div>
     <div class='travelCardText'>
       <div class="travelTitle">
-      <h3>${data[index].name}</h3>
+      <h3>${arr[index].name}</h3>
       </div>
-        <div class="travelDetail">${data[index].description}</div>
+        <div class="travelDetail">${arr[index].description}</div>
         <div class='travelFooter'>
           <div class='travelGroup'>
           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-          剩下最後 ${data[index].group} 組
+          剩下最後 ${arr[index].group} 組
           </div>
           <div class='travelPrice'>
-          <span>TWD</span><span class='dollar'><i class="fa fa-usd" aria-hidden="true"></i>${data[index].price}</span>
+          <span>TWD</span><span class='dollar'><i class="fa fa-usd" aria-hidden="true"></i>${arr[index].price}</span>
           </div>
         </div>
   </div>
@@ -60,7 +64,42 @@ data.forEach(function(item,index){
   travelAllCard.innerHTML=str;
   }
 
-init();
+init(data);
+//
+//搜尋
+let searchResult=[];
+let search =document.querySelector('#touristSpotSearch');
+search.addEventListener('change',function(e){
+  searchResult=[];
+  data.forEach(function(item){
+    if(item.area==e.target.value){
+      searchResult.push({
+      "id": searchResult.length,
+      "name": item.name,
+      "imgUrl": item.imgUrl,
+      "area": item.area,
+      "description": item.description,
+      "group": item.group,
+      "price": item.price,
+      "rate": item.rate
+    })
+    }else if(e.target.value=='全部地區'){
+      searchResult.push({
+      "id": searchResult.length,
+      "name": item.name,
+      "imgUrl": item.imgUrl,
+      "area": item.area,
+      "description": item.description,
+      "group": item.group,
+      "price": item.price,
+      "rate": item.rate})
+    }
+  })
+  init(searchResult);
+})
+
+
+//
 
 let ticketName=document.querySelector('#ticketName');
 let ticketImg=document.querySelector('#ticketImg');
@@ -74,7 +113,7 @@ let ticketDesc=document.querySelector('#ticketDesc');
 let addBtn=document.querySelector('.btn');
 addBtn.addEventListener('click',function(e){
   e.preventDefault();
-  
+  search.value='';//新增景點時，把search歸回預設
   //檢查null或空值
   if(ticketName.value!=null && ticketImg.value!=null && touristSpot.value!=null && ticketDesc.value!=null && ticketNum.value!=null && ticketPrice.value!=null && ticketRank.value!=null && ticketName.value.trim().length !=0 && ticketImg.value.trim().length !=0 && touristSpot.value.trim().length !=0 && ticketDesc.value.trim().length !=0 && ticketNum.value.trim().length !=0 && ticketPrice.value.trim().length !=0 && ticketRank.value.trim().length !=0){
    data.push({
@@ -95,9 +134,11 @@ addBtn.addEventListener('click',function(e){
       ticketNum.value=null;;
       ticketRank.value=null;
       ticketDesc.value=null;
-      init();
+      init(data);
     }else {
       alert('有欄位沒輸入，請檢查');
     }
 
 }) 
+
+
