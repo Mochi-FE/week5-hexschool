@@ -41,11 +41,15 @@ function init(arr){
   searchTotal.textContent=`本次搜尋共${arr.length}筆資料`;//預設3筆
 arr.forEach(function(item,index){
   str +=`<li class="travelCard">
+     <div class="areaLabel">
+       ${item.area}
+     </div>
     <div class="travelImg">
     <img src=${arr[index].imgUrl} alt="">
     </div>
     <div class='travelCardText'>
       <div class="travelTitle">
+      <div class="rateLabel">${arr[index].rate}</div>
       <h3>${arr[index].name}</h3>
       </div>
         <div class="travelDetail">${arr[index].description}</div>

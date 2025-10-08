@@ -161,6 +161,20 @@ i {
   border:1px solid #DEE2E6;
   border-radius:4px;
   box-shadow: 0px 3px 6px #00000029;
+  position:relative;
+}
+.areaLabel {
+  position:absolute;
+  width:80px;
+  height:44px;
+  top:-12px;
+  background-color: #64C3BF;
+  font-size: 20px;
+  font-weight: 500;
+  color:#FFF;
+  text-align:center;
+  line-height:44px;
+  border-radius: 0 4px 4px 0;
 }
 .travelImg img {
   max-width:100%;
@@ -183,6 +197,20 @@ i {
 .travelTitle {
    padding:16px 0px;
   font-weight: 700;
+  position:relative;
+}
+
+.rateLabel {
+  position:absolute;
+  width:40px;
+  height:32px;
+  background-color: #00807E;
+  color:#FFF;
+  text-align:center;
+  line-height:32px;
+  border-radius: 0 4px 4px 0;
+  left:-20px;
+  top:-20px;
 }
 .travelTitle h3 {
   color:#00807E;
@@ -200,7 +228,9 @@ i {
   display: flex;
   flex-direction:column;
   justify-content:space-between;
+
 }
+
 
 .travelFooter {
   color:#00807E;
