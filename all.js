@@ -120,15 +120,17 @@ addBtn.addEventListener('click',function(e){
   search.value='';//新增景點時，把search歸回預設
   //檢查null或空值
   if(ticketName.value!=null && ticketImg.value!=null && touristSpot.value!=null && ticketDesc.value!=null && ticketNum.value!=null && ticketPrice.value!=null && ticketRank.value!=null && ticketName.value.trim().length !=0 && ticketImg.value.trim().length !=0 && touristSpot.value.trim().length !=0 && ticketDesc.value.trim().length !=0 && ticketNum.value.trim().length !=0 && ticketPrice.value.trim().length !=0 && ticketRank.value.trim().length !=0){
-   data.push({
+    //判斷數字型別
+    if(typeof +(ticketPrice.value)=='number'&& !isNaN(ticketPrice.value) && typeof +(ticketNum.value)=='number'&& !isNaN(ticketNum.value) && typeof +(ticketRank.value)=='number'&& !isNaN(ticketRank.value)){
+     data.push({
       "id": data.length,
       "name": ticketName.value,
       "imgUrl": ticketImg.value,
       "area": touristSpot.value,
       "description": ticketDesc.value,
-      "group": ticketNum.value,
-      "price": ticketPrice.value,
-      "rate": ticketRank.value
+      "group": +(ticketNum.value),
+      "price": +(ticketPrice.value),
+      "rate": +(ticketRank.value)
     })
     //push完再把表格清空
       ticketName.value=null;
@@ -139,6 +141,11 @@ addBtn.addEventListener('click',function(e){
       ticketRank.value=null;
       ticketDesc.value=null;
       init(data);
+      
+    }else{
+      alert('套票金額,組數,星級，必須為數字');
+    }
+  
     }else {
       alert('有欄位沒輸入，請檢查');
     }
